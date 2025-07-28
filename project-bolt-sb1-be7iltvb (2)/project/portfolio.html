@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utkarsh Sharma - DevOps & Cloud Native Engineer</title>
+    <meta name="description" content="DevOps & Cloud Native Engineer passionate about automation, infrastructure, and cloud-native tools. National medalist in Judo showcasing discipline and dedication.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Theme Variables */
+        :root {
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --bg-tertiary: #374151;
+            --text-primary: #ffffff;
+            --text-secondary: #d1d5db;
+            --text-tertiary: #9ca3af;
+            --accent-primary: #06b6d4;
+            --accent-secondary: #3b82f6;
+            --gradient-primary: linear-gradient(135deg, #06b6d4, #3b82f6);
+            --gradient-secondary: linear-gradient(135deg, #8b5cf6, #ec4899);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .light-theme {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+            --text-primary: #111827;
+            --text-secondary: #374151;
+            --text-tertiary: #6b7280;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .gap-4 {
+            gap: 1rem;
+        }
+
+        .gap-6 {
+            gap: 1.5rem;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .grid-cols-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .mb-12 {
+            margin-bottom: 3rem;
+        }
+
+        .mb-16 {
+            margin-bottom: 4rem;
+        }
+
+        .p-4 {
+            padding: 1rem;
+        }
+
+        .p-6 {
+            padding: 1.5rem;
+        }
+
+        .p-8 {
+            padding: 2rem;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .rounded-xl {
+            border-radius: 0.75rem;
+        }
+
+        .rounded-full {
+            border-radius: 9999px;
+        }
+
+        .shadow-lg {
+            box-shadow: var(--shadow);
+        }
+
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 1000;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: none;
+            padding: 0.75rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #111827 0%, #1e3a8a 50%, #111827 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .light-theme .hero {
+            background: linear-gradient(135deg, #f9fafb 0%, #dbeafe 50%, #f9fafb 100%);
+        }
+
+        .hero-bg-elements {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+
+        .floating-icon {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-icon:nth-child(2) {
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        .section-alt {
+            background: var(--bg-secondary);
+        }
+
+        .card {
+            background: var(--bg-primary);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .section-alt .card {
+            background: var(--bg-primary);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Skills Section */
+        .skill-category {
+            text-align: center;
+        }
+
+        .skill-icon {
+            display: inline-flex;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: var(--bg-tertiary);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .skill-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: var(--accent-primary);
+        }
+
+        /* Projects Section */
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .project-card {
+            background: var(--bg-primary);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--bg-tertiary);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--bg-tertiary);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-tertiary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .grid-cols-2,
+            .grid-cols-3,
+            .grid-cols-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .md\:grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .lg\:grid-cols-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Animations */
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Blog Section */
+        .blog-card {
+            background: var(--bg-primary);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent-primary);
+            color: white;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Certifications */
+        .cert-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: var(--bg-primary);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .cert-icon {
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .cert-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: var(--gradient-secondary);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i data-lucide="moon" id="theme-icon"></i>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-elements">
+            <div class="floating-icon" style="top: 5rem; left: 2rem;">
+                <i data-lucide="cloud" style="width: 4rem; height: 4rem; color: var(--accent-primary);"></i>
+            </div>
+            <div class="floating-icon" style="top: 10rem; right: 5rem;">
+                <i data-lucide="server" style="width: 3rem; height: 3rem; color: var(--accent-secondary);"></i>
+            </div>
+            <div class="floating-icon" style="bottom: 8rem; left: 5rem;">
+                <i data-lucide="code" style="width: 3.5rem; height: 3.5rem; color: #8b5cf6;"></i>
+            </div>
+            <div class="floating-icon" style="bottom: 5rem; right: 2rem;">
+                <i data-lucide="cloud" style="width: 5rem; height: 5rem; color: var(--accent-primary); opacity: 0.5;"></i>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h1>Utkarsh Sharma</h1>
+                <h2>DevOps & Cloud Native Engineer</h2>
+                <p>"Bridging Technology, Discipline, and Communication"</p>
+                
+                <div class="hero-buttons">
+                    <a href="https://www.linkedin.com/in/utkarsh-sharma-507169259/" target="_blank" class="btn btn-primary">
+                        <i data-lucide="linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="tel:1234567890" class="btn btn-primary">
+                        <i data-lucide="phone"></i>
+                        Call Me
+                    </a>
+                    <a href="mailto:utkarsh@example.com" class="btn btn-primary">
+                        <i data-lucide="mail"></i>
+                        Email
+                    </a>
+                    <a href="https://github.com/utkarsh-sharma" target="_blank" class="btn btn-secondary">
+                        <i data-lucide="github"></i>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="text-center">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center">
+                    <div style="width: 16rem; height: 16rem; margin: 0 auto; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow);">
+                        <div style="width: 14rem; height: 14rem; background: var(--bg-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 4rem; font-weight: bold; color: var(--text-tertiary);">US</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <p style="font-size: 1.125rem; line-height: 1.7; margin-bottom: 1.5rem;">
+                        I'm a passionate DevOps and Cloud Native Engineer with a unique blend of technical expertise and athletic discipline. My journey combines cutting-edge technology with the dedication I've learned through competitive sports.
+                    </p>
+                    
+                    <p style="font-size: 1.125rem; line-height: 1.7; margin-bottom: 2rem;">
+                        As a national medalist in Judo, I bring the same level of discipline, focus, and continuous improvement mindset to my work in automation, infrastructure, and cloud-native technologies.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="card">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="target" style="width: 2rem; height: 2rem; color: var(--accent-primary);"></i>
+                                <div>
+                                    <h4>Automation</h4>
+                                    <p style="font-size: 0.875rem; margin: 0;">Infrastructure & CI/CD</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="mic" style="width: 2rem; height: 2rem; color: #8b5cf6;"></i>
+                                <div>
+                                    <h4>Communication</h4>
+                                    <p style="font-size: 0.875rem; margin: 0;">Marketing & Speaking</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="award" style="width: 2rem; height: 2rem; color: #eab308;"></i>
+                                <div>
+                                    <h4>Achievement</h4>
+                                    <p style="font-size: 0.875rem; margin: 0;">National Medalist</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="users" style="width: 2rem; height: 2rem; color: #10b981;"></i>
+                                <div>
+                                    <h4>Leadership</h4>
+                                    <p style="font-size: 0.875rem; margin: 0;">Team Management</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center">Skills & Tools</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="skill-category card">
+                    <div class="skill-icon">
+                        <i data-lucide="settings" style="width: 2rem; height: 2rem;"></i>
+                    </div>
+                    <h3>DevOps</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-dot"></div>
+                            <span>Docker</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot"></div>
+                            <span>Kubernetes</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot"></div>
+                            <span>Terraform</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot"></div>
+                            <span>Jenkins</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot"></div>
+                            <span>GitHub Actions</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot"></div>
+                            <span>CI/CD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">
+                        <i data-lucide="cloud" style="width: 2rem; height: 2rem;"></i>
+                    </div>
+                    <h3>Cloud Platforms</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #8b5cf6;"></div>
+                            <span>AWS</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #8b5cf6;"></div>
+                            <span>Azure</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #8b5cf6;"></div>
+                            <span>GCP</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #8b5cf6;"></div>
+                            <span>CloudFormation</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #8b5cf6;"></div>
+                            <span>ARM Templates</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, #10b981, #14b8a6);">
+                        <i data-lucide="code" style="width: 2rem; height: 2rem;"></i>
+                    </div>
+                    <h3>Tools & Languages</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #10b981;"></div>
+                            <span>Bash</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #10b981;"></div>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #10b981;"></div>
+                            <span>Helm</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #10b981;"></div>
+                            <span>Ansible</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #10b981;"></div>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #10b981;"></div>
+                            <span>Linux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, #f97316, #ef4444);">
+                        <i data-lucide="users" style="width: 2rem; height: 2rem;"></i>
+                    </div>
+                    <h3>Soft Skills</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #f97316;"></div>
+                            <span>Marketing</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #f97316;"></div>
+                            <span>Public Speaking</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #f97316;"></div>
+                            <span>Team Leadership</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-dot" style="background: #f97316;"></div>
+                            <span>Project Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="text-center">Featured Projects</h2>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" onclick="filterProjects('All')">
+                    <i data-lucide="filter" style="width: 1rem; height: 1rem; margin-right: 0.5rem;"></i>
+                    All
+                </button>
+                <button class="filter-btn" onclick="filterProjects('DevOps')">DevOps</button>
+                <button class="filter-btn" onclick="filterProjects('Cloud')">Cloud</button>
+                <button class="filter-btn" onclick="filterProjects('Marketing-Tech')">Marketing-Tech</button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <div class="project-card" data-category="DevOps">
+                    <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Kubernetes Multi-Cloud" class="project-image">
+                    <div class="project-content">
+                        <h3>Kubernetes Multi-Cloud Orchestration</h3>
+                        <p>Automated deployment pipeline across AWS, Azure, and GCP using Terraform and Kubernetes operators.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Terraform</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Azure</span>
+                            <span class="tech-tag">GCP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/utkarsh-sharma/k8s-multicloud" target="_blank" class="btn btn-secondary">
+                                <i data-lucide="github"></i>
+                                Code
+                            </a>
+                            <a href="#" class="btn btn-primary">
+                                <i data-lucide="external-link"></i>
+                                Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="DevOps">
+                    <img src="https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800" alt="CI/CD Pipeline" class="project-image">
+                    <div class="project-content">
+                        <h3>CI/CD Pipeline Automation</h3>
+                        <p>Complete GitOps workflow with automated testing, security scanning, and deployment using GitHub Actions.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">GitHub Actions</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">SonarCube</span>
+                            <span class="tech-tag">ArgoCD</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/utkarsh-sharma/cicd-automation" target="_blank" class="btn btn-secondary">
+                                <i data-lucide="github"></i>
+                                Code
+                            </a>
+                            <a href="#" class="btn btn-primary">
+                                <i data-lucide="external-link"></i>
+                                Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="Cloud">
+                    <img src="https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Serverless Infrastructure" class="project-image">
+                    <div class="project-content">
+                        <h3>Serverless Infrastructure as Code</h3>
+                        <p>AWS Lambda-based microservices with Infrastructure as Code using Terraform and automated monitoring.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">AWS Lambda</span>
+                            <span class="tech-tag">Terraform</span>
+                            <span class="tech-tag">CloudWatch</span>
+                            <span class="tech-tag">API Gateway</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/utkarsh-sharma/serverless-iac" target="_blank" class="btn btn-secondary">
+                                <i data-lucide="github"></i>
+                                Code
+                            </a>
+                            <a href="#" class="btn btn-primary">
+                                <i data-lucide="external-link"></i>
+                                Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="Marketing-Tech">
+                    <img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Marketing Platform" class="project-image">
+                    <div class="project-content">
+                        <h3>DevOps Marketing Platform</h3>
+                        <p>Marketing automation platform for DevOps tools with analytics dashboard and user engagement tracking.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/utkarsh-sharma/devops-marketing" target="_blank" class="btn btn-secondary">
+                                <i data-lucide="github"></i>
+                                Code
+                            </a>
+                            <a href="#" class="btn btn-primary">
+                                <i data-lucide="external-link"></i>
+                                Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="DevOps">
+                    <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Container Security" class="project-image">
+                    <div class="project-content">
+                        <h3>Container Security Scanner</h3>
+                        <p>Automated security scanning tool for Docker containers with vulnerability assessment and compliance reports.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Trivy</span>
+                            <span class="tech-tag">Jenkins</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/utkarsh-sharma/container-security" target="_blank" class="btn btn-secondary">
+                                <i data-lucide="github"></i>
+                                Code
+                            </a>
+                            <a href="#" class="btn btn-primary">
+                                <i data-lucide="external-link"></i>
+                                Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center">Certifications & Achievements</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-center mb-8">Technical Certifications</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div class="cert-card">
+                            <div class="cert-icon">
+                                <i data-lucide="shield" style="width: 2rem; height: 2rem;"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4>AWS Certified Solutions Architect</h4>
+                                <p style="margin: 0.5rem 0;">Amazon Web Services</p>
+                                <div class="flex items-center gap-4">
+                                    <span style="font-size: 0.875rem; color: var(--text-tertiary);">2023</span>
+                                    <span class="cert-badge">Cloud</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="cert-icon">
+                                <i data-lucide="star" style="width: 2rem; height: 2rem;"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4>Certified Kubernetes Administrator (CKA)</h4>
+                                <p style="margin: 0.5rem 0;">Cloud Native Computing Foundation</p>
+                                <div class="flex items-center gap-4">
+                                    <span style="font-size: 0.875rem; color: var(--text-tertiary);">2023</span>
+                                    <span class="cert-badge">DevOps</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="cert-icon" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">
+                                <i data-lucide="shield" style="width: 2rem; height: 2rem;"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4>HashiCorp Terraform Associate</h4>
+                                <p style="margin: 0.5rem 0;">HashiCorp</p>
+                                <div class="flex items-center gap-4">
+                                    <span style="font-size: 0.875rem; color: var(--text-tertiary);">2022</span>
+                                    <span class="cert-badge">Infrastructure</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="cert-icon" style="background: linear-gradient(135deg, #10b981, #14b8a6);">
+                                <i data-lucide="star" style="width: 2rem; height: 2rem;"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4>Docker Certified Associate</h4>
+                                <p style="margin: 0.5rem 0;">Docker Inc.</p>
+                                <div class="flex items-center gap-4">
+                                    <span style="font-size: 0.875rem; color: var(--text-tertiary);">2022</span>
+                                    <span class="cert-badge">Containerization</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-center mb-8">Judo Achievements</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div class="cert-card">
+                            <div class="cert-icon" style="background: linear-gradient(135deg, #eab308, #f97316);">
+                                <i data-lucide="trophy" style="width: 3rem; height: 3rem;"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4>National Judo Championship</h4>
+                                <p style="margin: 0.5rem 0;">Gold Medal - Under 81kg Category</p>
+                                <div style="font-size: 0.875rem; color: var(--text-tertiary);">
+                                    <span>2021</span>
+                                    <span style="margin: 0 0.5rem;">•</span>
+                                    <span>New Delhi, India</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="cert-icon" style="background: linear-gradient(135deg, #6b7280, #9ca3af);">
+                                <i data-lucide="award" style="width: 3rem; height: 3rem;"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4>State Judo Championship</h4>
+                                <p style="margin: 0.5rem 0;">Silver Medal - Under 81kg Category</p>
+                                <div style="font-size: 0.875rem; color: var(--text-tertiary);">
+                                    <span>2020</span>
+                                    <span style="margin: 0 0.5rem;">•</span>
+                                    <span>Mumbai, India</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="cert-icon" style="background: linear-gradient(135deg, #d97706, #ea580c);">
+                                <i data-lucide="award" style="width: 3rem; height: 3rem;"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4>Regional Judo Tournament</h4>
+                                <p style="margin: 0.5rem 0;">Bronze Medal - Under 81kg Category</p>
+                                <div style="font-size: 0.875rem; color: var(--text-tertiary);">
+                                    <span>2019</span>
+                                    <span style="margin: 0 0.5rem;">•</span>
+                                    <span>Bangalore, India</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #eab308, #f97316); border-radius: 0.75rem; text-align: center;">
+                        <i data-lucide="trophy" style="width: 4rem; height: 4rem; color: white; margin: 0 auto 1rem; display: block;"></i>
+                        <h4 style="color: white; margin-bottom: 0.5rem;">National Medalist in Judo</h4>
+                        <p style="color: rgba(255, 255, 255, 0.9); margin: 0;">
+                            Demonstrating discipline, dedication, and continuous improvement in both sports and technology
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="text-center mb-16">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <i data-lucide="book-open" style="width: 2rem; height: 2rem; color: var(--accent-primary);"></i>
+                    <h2 style="margin: 0;">Blog & Thoughts</h2>
+                </div>
+                <p style="font-size: 1.25rem; max-width: 48rem; margin: 0 auto;">
+                    Sharing insights on DevOps trends, cloud strategy, marketing in tech, and lessons learned from competitive sports
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <article class="blog-card">
+                    <div style="position: relative; overflow: hidden;">
+                        <img src="https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800" alt="DevOps Future" class="blog-image">
+                        <div class="blog-category">DevOps</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="calendar" style="width: 1rem; height: 1rem;"></i>
+                                <span>January 15, 2024</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="clock" style="width: 1rem; height: 1rem;"></i>
+                                <span>8 min read</span>
+                            </div>
+                        </div>
+                        <h3>The Future of DevOps: Embracing GitOps and Platform Engineering</h3>
+                        <p>Exploring how GitOps principles and platform engineering are reshaping the DevOps landscape, making deployments more reliable and teams more productive.</p>
+                        <a href="#" class="btn btn-primary">
+                            Read More
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div style="position: relative; overflow: hidden;">
+                        <img src="https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cloud Security" class="blog-image">
+                        <div class="blog-category">Cloud Security</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="calendar" style="width: 1rem; height: 1rem;"></i>
+                                <span>January 8, 2024</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="clock" style="width: 1rem; height: 1rem;"></i>
+                                <span>12 min read</span>
+                            </div>
+                        </div>
+                        <h3>Cloud-Native Security: Zero Trust in Kubernetes</h3>
+                        <p>Implementing zero trust security models in Kubernetes environments, covering network policies, service mesh, and runtime security best practices.</p>
+                        <a href="#" class="btn btn-primary">
+                            Read More
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div style="position: relative; overflow: hidden;">
+                        <img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Marketing in Tech" class="blog-image">
+                        <div class="blog-category">Marketing</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="calendar" style="width: 1rem; height: 1rem;"></i>
+                                <span>January 1, 2024</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="clock" style="width: 1rem; height: 1rem;"></i>
+                                <span>6 min read</span>
+                            </div>
+                        </div>
+                        <h3>Marketing in Tech: Lessons from Sports Psychology</h3>
+                        <p>How the mental discipline and strategy from competitive Judo translates into effective marketing strategies for technical products and services.</p>
+                        <a href="#" class="btn btn-primary">
+                            Read More
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div style="position: relative; overflow: hidden;">
+                        <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Infrastructure as Code" class="blog-image">
+                        <div class="blog-category">Infrastructure</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="calendar" style="width: 1rem; height: 1rem;"></i>
+                                <span>December 28, 2023</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="clock" style="width: 1rem; height: 1rem;"></i>
+                                <span>10 min read</span>
+                            </div>
+                        </div>
+                        <h3>Infrastructure as Code: Beyond Terraform</h3>
+                        <p>Exploring modern IaC tools and practices, including Pulumi, CDK, and emerging declarative infrastructure management patterns.</p>
+                        <a href="#" class="btn btn-primary">
+                            Read More
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center" style="margin-top: 3rem;">
+                <button class="btn btn-primary" style="padding: 1rem 2rem;">
+                    View All Posts
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 50%, #7c3aed 100%); position: relative; overflow: hidden;">
+        <div style="position: absolute; inset: 0; overflow: hidden; opacity: 0.1;">
+            <div style="position: absolute; top: 5rem; left: 2.5rem; width: 8rem; height: 8rem; background: var(--accent-primary); border-radius: 50%; filter: blur(40px);"></div>
+            <div style="position: absolute; bottom: 5rem; right: 2.5rem; width: 12rem; height: 12rem; background: #8b5cf6; border-radius: 50%; filter: blur(40px);"></div>
+            <div style="position: absolute; top: 10rem; right: 5rem; width: 6rem; height: 6rem; background: var(--accent-secondary); border-radius: 50%; filter: blur(40px);"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 10;">
+            <h2 class="text-center" style="color: white;">Get In Touch</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="color: white; margin-bottom: 1.5rem;">Let's Connect</h3>
+                        <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.125rem; line-height: 1.7;">
+                            I'm always interested in discussing new opportunities, collaborations, or just having a conversation about DevOps, cloud technologies, or sports. Feel free to reach out!
+                        </p>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <a href="tel:1234567890" class="card" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); display: flex; align-items: flex-start; gap: 1rem; transition: all 0.3s ease;">
+                            <div style="padding: 0.75rem; background: #10b981; border-radius: 0.5rem;">
+                                <i data-lucide="phone" style="width: 1.5rem; height: 1.5rem; color: white;"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: white;">Phone</h4>
+                                <p style="color: rgba(255, 255, 255, 0.8); margin: 0;">1234567890</p>
+                            </div>
+                        </a>
+                        
+                        <a href="mailto:utkarsh@example.com" class="card" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); display: flex; align-items: flex-start; gap: 1rem; transition: all 0.3s ease;">
+                            <div style="padding: 0.75rem; background: var(--accent-secondary); border-radius: 0.5rem;">
+                                <i data-lucide="mail" style="width: 1.5rem; height: 1.5rem; color: white;"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: white;">Email</h4>
+                                <p style="color: rgba(255, 255, 255, 0.8); margin: 0;">utkarsh@example.com</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/in/utkarsh-sharma-507169259/" target="_blank" class="card" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); display: flex; align-items: flex-start; gap: 1rem; transition: all 0.3s ease;">
+                            <div style="padding: 0.75rem; background: #0077b5; border-radius: 0.5rem;">
+                                <i data-lucide="linkedin" style="width: 1.5rem; height: 1.5rem; color: white;"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: white;">LinkedIn</h4>
+                                <p style="color: rgba(255, 255, 255, 0.8); margin: 0;">Connect with me</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="message-square" style="width: 2rem; height: 2rem; color: var(--accent-primary);"></i>
+                        <h3 style="color: white; margin: 0;">Send Message</h3>
+                    </div>
+                    
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="grid md:grid-cols-2 gap-4 mb-6">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" id="name" name="name" required class="form-input" placeholder="Your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" name="email" required class="form-input" placeholder="your@email.com">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" name="subject" required class="form-input" placeholder="What's this about?">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" required class="form-input form-textarea" placeholder="Tell me about your project or just say hello!"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem;">
+                            <i data-lucide="send"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem;">
+                        Utkarsh Sharma
+                    </h3>
+                    <p style="line-height: 1.7; margin-bottom: 1rem;">
+                        DevOps & Cloud Native Engineer passionate about bridging technology, discipline, and communication.
+                    </p>
+                    <div class="flex items-center gap-2" style="font-size: 0.875rem; color: var(--text-tertiary);">
+                        <i data-lucide="trophy" style="width: 1rem; height: 1rem; color: #eab308;"></i>
+                        <span>National Medalist in Judo</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1rem;">Quick Links</h4>
+                    <nav style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="#about" style="color: var(--text-tertiary); text-decoration: none; transition: color 0.2s;">About Me</a>
+                        <a href="#skills" style="color: var(--text-tertiary); text-decoration: none; transition: color 0.2s;">Skills & Tools</a>
+                        <a href="#projects" style="color: var(--text-tertiary); text-decoration: none; transition: color 0.2s;">Projects</a>
+                        <a href="#certifications" style="color: var(--text-tertiary); text-decoration: none; transition: color 0.2s;">Certifications</a>
+                        <a href="#contact" style="color: var(--text-tertiary); text-decoration: none; transition: color 0.2s;">Contact</a>
+                    </nav>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1rem;">Get In Touch</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <a href="tel:1234567890" class="flex items-center gap-3" style="color: var(--text-tertiary); text-decoration: none; transition: color 0.2s;">
+                            <i data-lucide="phone" style="width: 1rem; height: 1rem;"></i>
+                            <span>1234567890</span>
+                        </a>
+                        <a href="mailto:utkarsh@example.com" class="flex items-center gap-3" style="color: var(--text-tertiary); text-decoration: none; transition: color 0.2s;">
+                            <i data-lucide="mail" style="width: 1rem; height: 1rem;"></i>
+                            <span>utkarsh@example.com</span>
+                        </a>
+                        <div class="flex gap-4" style="padding-top: 0.5rem;">
+                            <a href="https://www.linkedin.com/in/utkarsh-sharma-507169259/" target="_blank" style="padding: 0.5rem; background: var(--bg-tertiary); border-radius: 0.5rem; color: var(--text-primary); text-decoration: none; transition: all 0.2s;">
+                                <i data-lucide="linkedin" style="width: 1.25rem; height: 1.25rem;"></i>
+                            </a>
+                            <a href="https://github.com/utkarsh-sharma" target="_blank" style="padding: 0.5rem; background: var(--bg-tertiary); border-radius: 0.5rem; color: var(--text-primary); text-decoration: none; transition: all 0.2s;">
+                                <i data-lucide="github" style="width: 1.25rem; height: 1.25rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                    <div class="flex items-center gap-2">
+                        <span>© 2024 Utkarsh Sharma. Made with</span>
+                        <i data-lucide="heart" style="width: 1rem; height: 1rem; color: #ef4444; fill: currentColor;"></i>
+                        <span>and</span>
+                        <i data-lucide="code" style="width: 1rem; height: 1rem; color: var(--accent-primary);"></i>
+                    </div>
+                    <div style="font-size: 0.875rem;">
+                        DevOps Engineer • Cloud Native Enthusiast • National Judo Medalist
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Theme management
+        let currentTheme = 'dark';
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.body.className = currentTheme === 'light' ? 'light-theme' : '';
+            
+            const themeIcon = document.getElementById('theme-icon');
+            themeIcon.setAttribute('data-lucide', currentTheme === 'dark' ? 'moon' : 'sun');
+            lucide.createIcons();
+            
+            localStorage.setItem('theme', currentTheme);
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            currentTheme = savedTheme;
+            document.body.className = currentTheme === 'light' ? 'light-theme' : '';
+            const themeIcon = document.getElementById('theme-icon');
+            themeIcon.setAttribute('data-lucide', currentTheme === 'dark' ? 'moon' : 'sun');
+            lucide.createIcons();
+        }
+
+        // Project filtering
+        function filterProjects(category) {
+            const projects = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter projects
+            projects.forEach(project => {
+                if (category === 'All' || project.dataset.category === category) {
+                    project.style.display = 'block';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        }
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would typically send the data to a server
+            console.log('Form submitted:', data);
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll-based animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .project-card, .blog-card, .cert-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
